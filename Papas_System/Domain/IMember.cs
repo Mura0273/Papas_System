@@ -8,5 +8,6 @@ namespace Papas_System.Domain
 {
     interface IMember
     {
+        void Update();
     }
 }

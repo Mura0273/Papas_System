@@ -8,5 +8,8 @@ namespace Papas_System.Domain
 {
     interface IMembershipRepository
     {
+        void Attach(IMember o);
+        void Detach(IMember o);
+        void Notify();
     }
 }
