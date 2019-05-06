@@ -20,9 +20,22 @@ namespace Papas_System.UI
     /// </summary>
     public partial class Menu : UserControl
     {
+
         public Menu()
         {
-            InitializeComponent();
+            switch (combobox.SelectedItem)
+            {
+                case "1":
+                    datebox1.IsEnabled = true;
+                    break;
+                case "2":
+                    datebox1.IsEnabled = true;
+                    datebox2.IsEnabled = true;
+                    break;
+                default:
+                    //what you want when nothing is selected
+                    break;
+            }
         }
     }
 }

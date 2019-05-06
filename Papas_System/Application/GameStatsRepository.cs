@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Papas_System.Application
 {
-    class GameStatsRepository
+    public class GameStatsRepository
     {
+        public writeToDoc()
+        {
+
+        }
+        public showStats()
+        {
+
+        }
     }
 }

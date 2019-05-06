@@ -6,7 +6,23 @@ using System.Threading.Tasks;
 
 namespace Papas_System.Application
 {
-    class EventRepository
+    public class EventRepository
     {
+        public addEvent()
+        {
+            return
+        }
+        public deleteEvent()
+        {
+            return
+        }
+        public showEvent()
+        {
+            return
+        }
+        public modifyEvent()
+        {
+            return
+        }
     }
 }

@@ -6,7 +6,31 @@ using System.Threading.Tasks;
 
 namespace Papas_System.Application
 {
-    class ReservationRepository
+    public class ReservationRepository
     {
+        public createReservation()
+        {
+            createReservation.Add()
+        }
+        public showReservation()
+        {
+            return
+        }
+        public deleteReservation()
+        {
+            return
+        }
+        public modifyReservation()
+        {
+            return
+        }
+        public showAvailableTables()
+        {
+            return
+        }
+        public addComment()
+        {
+            return
+        }
     }
 }

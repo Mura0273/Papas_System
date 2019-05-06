@@ -6,7 +6,27 @@ using System.Threading.Tasks;
 
 namespace Papas_System.Application
 {
-    class BoardgameRepository
+    public class BoardgameRepository
     {
+        public addBoardgame()
+        {
+
+        }
+        public deleteBoardgame()
+        {
+
+        }
+        public showBoardgame()
+        {
+
+        }
+        public modifyBoardgame()
+        {
+
+        }
+        public recommendBoard()
+        {
+
+        }
     }
 }

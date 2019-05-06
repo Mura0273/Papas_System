@@ -6,7 +6,40 @@ using System.Threading.Tasks;
 
 namespace Papas_System.Application
 {
-    class MembershipRepository
+    public class MembershipRepository
     {
+        private List<string> Member = new List<string>;
+    }
+    public addMember()
+    {
+        return
+    }
+    public deleteMember(int id)
+    {
+        return
+    }
+    public showMembers()
+    {
+
+    }
+    public modifyMember()
+    {
+
+    }
+    public renewMembership()
+    {
+
+    }
+    public attach : IMember()
+    {
+
+    }
+    public detach : IMember()
+    {
+
+    }
+    public notify()
+    {
+
     }
 }
