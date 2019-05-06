@@ -12,4 +12,5 @@ namespace Papas_System.Domain
         void Detach(IMember m);
         void Notify();
     }
+    public test
 }
