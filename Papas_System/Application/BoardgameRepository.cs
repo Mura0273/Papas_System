@@ -8,23 +8,23 @@ namespace Papas_System.Application
 {
     public class BoardgameRepository
     {
-        public addBoardgame()
+        public AddBoardgame()
         {
 
         }
-        public deleteBoardgame()
+        public DeleteBoardgame()
         {
 
         }
-        public showBoardgame()
+        public GetBoardgame()
         {
 
         }
-        public modifyBoardgame()
+        public ModifyBoardgame()
         {
 
         }
-        public recommendBoard()
+        public RecommendBoardgame()
         {
 
         }

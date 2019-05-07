@@ -10,35 +10,35 @@ namespace Papas_System.Application
     {
         private List<string> Member = new List<string>;
     }
-    public addMember()
+    public AddMember()
     {
         return
     }
-    public deleteMember(int id)
+    public DeleteMember(int id)
     {
         return
     }
-    public showMembers()
+    public ShowMembers()
     {
 
     }
-    public modifyMember()
+    public ModifyMember()
     {
 
     }
-    public renewMembership()
+    public RenewMembership()
     {
 
     }
-    public attach : IMember()
+    public Attach : IMember()
     {
 
     }
-    public detach : IMember()
+    public Detach : IMember()
     {
 
     }
-    public notify()
+    public Notify()
     {
 
     }
