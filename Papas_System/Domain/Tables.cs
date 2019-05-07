@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Papas_System.Domain
 {
-    class Tables
+    public class Tables
     {
+        public string TableSize { get; set; }
+        public int TableNo { get; set; }
+        public void AddTable();
+        public void DeleteTabel();
     }
 }
