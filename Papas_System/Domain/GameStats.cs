@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Papas_System.Domain
 {
-    class GameStats
+    public class GameStats
     {
+        public string DateScanned { get; set; }
+        public int CountScanned { get; set; }
     }
 }
