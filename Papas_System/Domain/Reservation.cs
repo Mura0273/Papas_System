@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Papas_System.Domain
 {
-    class Reservation
+    public class Reservation
     {
+        public string ReservationTime { get; set; }
+        public string ReservationDate { get; set; }
+        public int ReservationId { get; set; }
+        public string CustomerName { get; set; }
+        public string Comment { get; set; }
+
     }
 }
