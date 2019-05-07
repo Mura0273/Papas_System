@@ -8,27 +8,27 @@ namespace Papas_System.Application
 {
     public class ReservationRepository
     {
-        public createReservation()
+        public CreateReservation()
         {
-            createReservation.Add()
+            CreateReservation.Add()
         }
-        public showReservation()
-        {
-            return
-        }
-        public deleteReservation()
+        public GetReservation()
         {
             return
         }
-        public modifyReservation()
+        public DeleteReservation()
         {
             return
         }
-        public showAvailableTables()
+        public ModifyReservation()
         {
             return
         }
-        public addComment()
+        public GetAvailableTables()
+        {
+            return
+        }
+        public AddComment()
         {
             return
         }

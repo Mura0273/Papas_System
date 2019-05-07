@@ -8,19 +8,19 @@ namespace Papas_System.Application
 {
     public class EventRepository
     {
-        public addEvent()
+        public AddEvent()
         {
             return
         }
-        public deleteEvent()
+        public DeleteEvent()
         {
             return
         }
-        public showEvent()
+        public ShowEvent()
         {
             return
         }
-        public modifyEvent()
+        public ModifyEvent()
         {
             return
         }
