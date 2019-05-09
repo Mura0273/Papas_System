@@ -8,7 +8,13 @@ namespace Papas_System.Domain
 {
     public class GameStats
     {
-        public string DateScanned { get; set; }
-        public int CountScanned { get; set; }
+        public string DateScanned;
+        public int CountScanned;
+
+        public GameStats (string dateScanned, int countScanned)
+        {
+            DateScanned = dateScanned;
+            CountScanned = countScanned;
+        }
     }
 }
