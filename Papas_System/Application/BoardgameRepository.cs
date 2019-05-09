@@ -63,10 +63,9 @@ namespace Papas_System.Application
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                    string query = "INSERT INTO PET (PetName, PetType, PetBreed, PetDOBl, PetWeight, OwnerID) VALUES " +
-                        "(@PetName, @PetType, @PetBreed, @PetDOBl, @PetWeight, @OwnerID)";
-                // Skal erstattes med Game_Library Query INSERT INTO Game_Libary (Boardgame_Name, Player_Count, Audience, Game_Time, Distributor, GameTag, Boardgame_Id)
-                // VALUES(@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @GameTag, @Boardgame_Id)
+                    string query = "INSERT INTO Game_Libary (Boardgame_Name, Player_Count, Audience, Game_Time, Distributor, GameTag, Boardgame_Id) VALUES " +
+                        "(@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @GameTag, @Boardgame_Id)";
+                
 
                 using (SqlCommand command = new SqlCommand(query, con))
                     {
