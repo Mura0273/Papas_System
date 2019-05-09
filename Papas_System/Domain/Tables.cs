@@ -10,8 +10,8 @@ namespace Papas_System.Domain
     {
         public string TableSize;
         public int TableNo;
-        public void AddTable();
-        public void DeleteTabel();
+        //public void AddTable();
+        //public void DeleteTabel();
 
         public Tables (string tableSize, int tableNo)
         {
