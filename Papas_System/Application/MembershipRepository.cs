@@ -12,6 +12,8 @@ namespace Papas_System.Application
     }
     public AddMember()
     {
+       
+        
         return
     }
     public DeleteMember(int id)
