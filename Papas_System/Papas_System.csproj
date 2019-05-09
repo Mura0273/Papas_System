@@ -57,7 +57,7 @@
     <Compile Include="Domain\EventReservation.cs" />
     <Compile Include="Domain\GameStats.cs" />
     <Compile Include="Domain\IMember.cs" />
-    <Compile Include="Application\IMembershipRepository.cs" />
+    <Compile Include="Application\IMembership.cs" />
     <Compile Include="Domain\Membership.cs" />
     <Compile Include="Domain\Reservation.cs" />
     <Compile Include="Domain\Tables.cs" />
