@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Papas_System.Domain
 {
-    interface Connection
+    interface IConnection
     {
         string connectionString
         {
