@@ -8,13 +8,28 @@ namespace Papas_System.Domain
 {
    public class Boardgame
     {
-        public string BoardgameName { get; set; }
-        public int NumberOfPlayers { get; set; }
-        public string Audience { get; set; }
-        public int ExpectedGameTime { get; set; }
-        public string Distributor { get; set; }
-        public int BoardgameId { get; set; }
-        public string GameTag { get; set; }
+        public string BoardgameName;
+        public int NumberOfPlayers;
+        public string Audience;
+        public int ExpectedGameTime;
+        public string Distributor;
+        public int BoardgameId;
+        public string GameTag; 
+
+        private Boardgame (string boardgameName,int numberOfPlayers,string audience,int expectedGameTime,string distributor,
+        int boardgameId,string gameTag)
+        {
+            BoardgameName = boardgameName;
+            NumberOfPlayers = numberOfPlayers;
+            Audience = audience;
+            ExpectedGameTime = expectedGameTime;
+            Distributor = distributor;
+            BoardgameId = boardgameId;
+            GameTag = gameTag;
+        }
+
+
+      
 
     }
 }

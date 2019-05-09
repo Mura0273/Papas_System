@@ -8,9 +8,23 @@ namespace Papas_System.Domain
 {
     public class EventReservation
     {
-        public string ReservationTime { get; set; }
-        public string ReservationDate { get; set; }
-        public int EventId { get; set; }
-        public string Comment { get; set; }
+        public string ReservationTime; 
+        public string ReservationDate; 
+        public int EventId; 
+        public string Comment; 
+    
+    
+     public EventReservation (string reservationTime,string reservationDate,int eventId, string comment)
+    {
+            ReservationTime = reservationTime; 
+            ReservationDate = reservationDate;
+            EventId = eventId;
+            Comment = comment;
     }
+
+        
+
+
+
+     }
 }
