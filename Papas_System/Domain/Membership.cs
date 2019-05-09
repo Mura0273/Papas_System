@@ -8,11 +8,19 @@ namespace Papas_System.Domain
 {
     public class Membership
     {
-        public int MemberNo { get; set; }
-        public string MemberName { get; set; }
-        public string SubscriptionDate { get; set; }
-        public string EndDate { get; set; }
-        public string EMail { get; set; }
+        public int MemberNo;
+        public string MemberName;
+        public string SubscriptionDate;
+        public string EndDate;
+        public string EMail;
 
+        public Membership (int memberNo, string memberName, string subscriptionDate, string endDate, string eMail)
+        {
+            MemberNo = memberNo;
+            MemberName = memberName;
+            SubscriptionDate = subscriptionDate;
+            EndDate = endDate;
+            EMail = eMail;
+        }
     }
 }
