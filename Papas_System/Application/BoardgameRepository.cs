@@ -7,8 +7,9 @@ using System.Data.SqlClient;
 
 namespace Papas_System.Application
 {
-    public class BoardgameRepository
+    public class BoardgameRepository : DataBaseController
     {
+
         public void AddBoardgame()
         {
             
@@ -59,8 +60,9 @@ namespace Papas_System.Application
 
             public void InsertBoardgame(string boardgameName, string numberOfPlayers, string audience, string expectedGameTime, string distributor, int boardgameId, string gameTag)
             {
-                using (connectionString con = new connectionString(connectionString))
-                {
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
                     string query = "INSERT INTO PET (PetName, PetType, PetBreed, PetDOBl, PetWeight, OwnerID) VALUES " +
                         "(@PetName, @PetType, @PetBreed, @PetDOBl, @PetWeight, @OwnerID)";
                     using (SqlCommand command = new SqlCommand(query, con))
