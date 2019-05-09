@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Application\BoardgameRepository.cs" />
     <Compile Include="Application\Controller.cs" />
+    <Compile Include="Application\DataBaseController.cs" />
     <Compile Include="Application\EventRepository.cs" />
     <Compile Include="Application\GameStatsRepository.cs" />
     <Compile Include="Application\MembershipRepository.cs" />
