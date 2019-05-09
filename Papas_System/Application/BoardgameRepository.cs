@@ -47,7 +47,7 @@ namespace Papas_System.Application
                             break;
                         case 2:
                             Console.WriteLine("Viser alle brætspil");
-                            GetBoardgame();
+                            //GetBoardgame(); SKal implementeres længere nede
                             Console.Clear();
                             break;
                         default:
@@ -65,7 +65,10 @@ namespace Papas_System.Application
             {
                     string query = "INSERT INTO PET (PetName, PetType, PetBreed, PetDOBl, PetWeight, OwnerID) VALUES " +
                         "(@PetName, @PetType, @PetBreed, @PetDOBl, @PetWeight, @OwnerID)";
-                    using (SqlCommand command = new SqlCommand(query, con))
+                // Skal erstattes med Game_Library Query INSERT INTO Game_Libary (Boardgame_Name, Player_Count, Audience, Game_Time, Distributor, GameTag, Boardgame_Id)
+                // VALUES(@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @GameTag, @Boardgame_Id)
+
+                using (SqlCommand command = new SqlCommand(query, con))
                     {
                         try
                         {
@@ -93,21 +96,57 @@ namespace Papas_System.Application
                 }
             }
         }
-        public DeleteBoardgame()
-        {
+        //public DeleteBoardgame()
+        //{
 
-        }
-        public GetBoardgame()
-        {
+        //}
+        //public void GetBoardgame()
+        //{
+        //using (SqlConnection con = new SqlConnection(connectionString))
+        //{
+        //    string query = "SELECT * FROM PET";
+        //    using (SqlCommand command = new SqlCommand(query, con))
+        //    {
+        //        try
+        //        {
+        //            con.Open();
+        //            SqlDataReader reader = command.ExecuteReader();
 
-        }
-        public ModifyBoardgame()
-        {
+        //            if (reader.HasRows)
+        //            {
+        //                while (reader.Read())
+        //                {
+        //                    int PetID = int.Parse(reader["PetID"].ToString());
+        //                    string PetName = reader["PetName"].ToString();
+        //                    string PetType = reader["PetType"].ToString();
+        //                    string PetBreed = reader["PetBreed"].ToString();
+        //                    string PetDOBl = reader["PetDOBl"].ToString();
+        //                    string petWeight = reader["petWeight"].ToString();
+        //                    int OwnerID = int.Parse(reader["OwnerID"].ToString());
+        //                    Console.WriteLine(PetID + ", " + PetName + ", " + PetType + ", " + PetBreed + ", " + PetDOBl + ", " + petWeight + ", " + OwnerID);
+        //                }
+        //            }
 
-        }
-        public RecommendBoardgame()
-        {
+        //            con.Close();
 
-        }
+        //            Console.ReadLine();
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            Console.WriteLine(e.Message);
+        //            Console.ReadLine();
+        //        }
+        //    }
+        //}
+
     }
+        //public ModifyBoardgame()
+        //{
+
+        //}
+        //public RecommendBoardgame()
+        //{
+
+        //}
+    
 

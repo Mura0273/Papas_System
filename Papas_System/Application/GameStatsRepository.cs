@@ -8,13 +8,13 @@ namespace Papas_System.Application
 {
     public class GameStatsRepository
     {
-        public WriteToDoc()
-        {
+        //public WriteToDoc()
+        //{
 
-        }
-        public GetStats()
-        {
+        //}
+        //public GetStats()
+        //{
 
-        }
+        //}
     }
 }

@@ -23,19 +23,19 @@ namespace Papas_System.UI
 
         public Menu()
         {
-            switch (combobox.SelectedItem)
-            {
-                case "1":
-                    datebox1.IsEnabled = true;
-                    break;
-                case "2":
-                    datebox1.IsEnabled = true;
-                    datebox2.IsEnabled = true;
-                    break;
-                default:
-                    //what you want when nothing is selected
-                    break;
-            }
+            //switch (combobox.SelectedItem)
+            //{
+            //    case "1":
+            //        datebox1.IsEnabled = true;
+            //        break;
+            //    case "2":
+            //        datebox1.IsEnabled = true;
+            //        datebox2.IsEnabled = true;
+            //        break;
+            //    default:
+            //        //what you want when nothing is selected
+            //        break;
+            //}
         }
     }
 }
