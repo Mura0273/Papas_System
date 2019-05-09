@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace Papas_System
 {
-    class Program
+    public class Program
     {
+
         static void Main(string[] args)
         {
+
+            
 
         }
     }
