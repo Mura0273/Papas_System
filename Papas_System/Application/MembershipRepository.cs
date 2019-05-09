@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace Papas_System.Application
 {
-    public class MembershipRepository
+    public class MembershipRepository : IMembership
     {
         private List<string> Member = new List<string>;
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
     public AddMember()
     {
@@ -16,7 +21,7 @@ namespace Papas_System.Application
         
         return
     }
-    public DeleteMember(int id)
+    public void DeleteMember(int id)
     {
         return
     }
@@ -32,16 +37,5 @@ namespace Papas_System.Application
     {
 
     }
-    public Attach : IMember()
-    {
 
-    }
-    public Detach : IMember()
-    {
-
-    }
-    public Notify()
-    {
-
-    }
 }
