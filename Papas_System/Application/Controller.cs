@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Papas_System.Application
 {
-    class Controller
+    public class Controller
     {
+        public void Boardgame()
+        {
+            BoardgameRepository boardgamerep = new BoardgameRepository();
+            boardgamerep.AddBoardgame();
+        }
     }
 }
