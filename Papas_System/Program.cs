@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace Papas_System
 {
-    class Program
+    public class Program
     {
+
         static void Main(string[] args)
         {
+
             Program prog = new Program();
             prog.Run();
         }
@@ -43,15 +45,16 @@ namespace Papas_System
         public void ShowMenu()
         {
             Console.Clear();
-            Console.WriteLine("1. tilføj brætspil");
+            Console.WriteLine("1. tilfï¿½j brï¿½tspil");
         }
         private int GetUserInput()
         {
             Console.WriteLine();
-            Console.Write("Vælg menupunkt: ");
+            Console.Write("Vï¿½lg menupunkt: ");
             string input = Console.ReadLine();
             int.TryParse(input, out int parsedInput);
             return parsedInput;
+
         }
     }
 }

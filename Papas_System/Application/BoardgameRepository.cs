@@ -63,8 +63,8 @@ namespace Papas_System.Application
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                    string query = "INSERT INTO Game_Libary (Boardgame_Name, Player_Count, Audience, Game_Time, Distributor, GameTag, Boardgame_Id) VALUES " +
-                        "(@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @GameTag, @Boardgame_Id)";
+                    string query = "INSERT INTO Game_Libary (Boardgame_Name, Player_Count, Audience, Game_Time, Distributor, Boardgame_Id , GameTag) VALUES " +
+                        "(@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @Boardgame_Id, @GameTag)";
                 
 
                 using (SqlCommand command = new SqlCommand(query, con))
