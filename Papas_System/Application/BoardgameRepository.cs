@@ -48,7 +48,7 @@ namespace Papas_System.Application
                         break;
                     case 2:
                         Console.WriteLine("Viser alle brætspil");
-                        //GetBoardgame(); SKal implementeres længere nede
+                        GetBoardgame();
                         Console.Clear();
                         break;
                     default:
@@ -129,6 +129,7 @@ namespace Papas_System.Application
                             string gameTag = reader ["GameTag"].ToString();
                             Console.WriteLine($"\nBoardgame_Name: {boardgameName} \nPlayer_Count: {numberOfPlayers} \nAudience: {audience} " +
                             $"\nGame_Time: {expectedGameTime} \nDistributor: {distributor}\nBoardgame_Id: {boardgameId}\nGameTag {gameTag}\n");
+                            //con.Close();
                         }
                     }
                 }
