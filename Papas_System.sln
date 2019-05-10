@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Papas_System", "Papas_System\Papas_System.csproj", "{EEA89229-030E-4083-A403-6E8685A9A296}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Papas_Test", "Papas_Test\Papas_Test.csproj", "{D7AE1EB7-7F26-4250-82CD-2CFDA1E8EA46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EEA89229-030E-4083-A403-6E8685A9A296}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEA89229-030E-4083-A403-6E8685A9A296}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEA89229-030E-4083-A403-6E8685A9A296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7AE1EB7-7F26-4250-82CD-2CFDA1E8EA46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7AE1EB7-7F26-4250-82CD-2CFDA1E8EA46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7AE1EB7-7F26-4250-82CD-2CFDA1E8EA46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7AE1EB7-7F26-4250-82CD-2CFDA1E8EA46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
