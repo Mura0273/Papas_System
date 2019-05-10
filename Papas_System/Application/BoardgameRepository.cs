@@ -37,12 +37,12 @@ namespace Papas_System.Application
                             string expectedGameTime = Console.ReadLine();
                             Console.Write("Distributør: ");
                             string distributor =Console.ReadLine();
-                            Console.Write("Brætspils Id: ");
-                            int boardgameId = int.Parse(Console.ReadLine());
+                            //Console.Write("Brætspils Id: ");
+                            //int boardgameId = int.Parse(Console.ReadLine());
                             Console.Write("Spilgenre: ");
                             string gameTag = Console.ReadLine();
 
-                        InsertBoardgame(boardgameName, numberOfPlayers, audience, expectedGameTime, distributor, boardgameId, gameTag);
+                        InsertBoardgame(boardgameName, numberOfPlayers, audience, expectedGameTime, distributor, /*boardgameId,*/ gameTag);
                             Console.Clear();
                             break;
                         case 2:
@@ -58,7 +58,7 @@ namespace Papas_System.Application
 
         }
 
-            public void InsertBoardgame(string boardgameName, string numberOfPlayers, string audience, string expectedGameTime, string distributor, int boardgameId, string gameTag)
+            public void InsertBoardgame(string boardgameName, string numberOfPlayers, string audience, string expectedGameTime, string distributor, /*int boardgameId,*/ string gameTag)
             {
 
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -76,7 +76,7 @@ namespace Papas_System.Application
                             command.Parameters.Add(new SqlParameter("@Audience", audience));
                             command.Parameters.Add(new SqlParameter("@Game_Time", expectedGameTime));
                             command.Parameters.Add(new SqlParameter("@Distributor",distributor));
-                            command.Parameters.Add(new SqlParameter("@Boardgame_Id", boardgameId));
+                            command.Parameters.Add(new SqlParameter("@Boardgame_Id", 1));
                             command.Parameters.Add(new SqlParameter("@GameTag", gameTag));
 
                         con.Open();
