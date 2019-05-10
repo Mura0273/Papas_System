@@ -45,12 +45,12 @@ namespace Papas_System
         public void ShowMenu()
         {
             Console.Clear();
-            Console.WriteLine("1. tilf�j br�tspil");
+            Console.WriteLine("1. tilføj brætspil");
         }
         private int GetUserInput()
         {
             Console.WriteLine();
-            Console.Write("V�lg menupunkt: ");
+            Console.Write("Vælg menupunkt: ");
             string input = Console.ReadLine();
             int.TryParse(input, out int parsedInput);
             return parsedInput;
