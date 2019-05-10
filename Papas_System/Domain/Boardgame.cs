@@ -9,14 +9,14 @@ namespace Papas_System.Domain
    public class Boardgame
     {
         public string BoardgameName;
-        public int NumberOfPlayers;
+        public string NumberOfPlayers;
         public string Audience;
-        public int ExpectedGameTime;
+        public string ExpectedGameTime;
         public string Distributor;
         public int BoardgameId;
         public string GameTag; 
 
-        private Boardgame (string boardgameName,int numberOfPlayers,string audience,int expectedGameTime,string distributor,
+        private Boardgame (string boardgameName,string numberOfPlayers,string audience,string expectedGameTime,string distributor,
         int boardgameId,string gameTag)
         {
             BoardgameName = boardgameName;
