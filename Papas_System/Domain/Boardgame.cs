@@ -8,28 +8,48 @@ namespace Papas_System.Domain
 {
    public class Boardgame
     {
-        public string BoardgameName;
-        public string NumberOfPlayers;
-        public string Audience;
-        public string ExpectedGameTime;
-        public string Distributor;
-        public int BoardgameId;
-        public string GameTag; 
-
-        private Boardgame (string boardgameName,string numberOfPlayers,string audience,string expectedGameTime,string distributor,
-        int boardgameId,string gameTag)
+        private string boardgameName;
+        private string numberOfPlayers;
+        private string audience;
+        private string expectedGameTime;
+        private string distributor;
+        private int boardgameId;
+        private string gameTag;
+        public string BoardgameName
         {
-            BoardgameName = boardgameName;
-            NumberOfPlayers = numberOfPlayers;
-            Audience = audience;
-            ExpectedGameTime = expectedGameTime;
-            Distributor = distributor;
-            BoardgameId = boardgameId;
-            GameTag = gameTag;
+           get { return boardgameName; }
+           set { boardgameName = value; }
         }
-
-
-      
+        public string NumberOfPlayers
+        {
+            get { return numberOfPlayers; }
+            set { numberOfPlayers = value; }
+        }
+        public string Audience
+        {
+            get { return audience; }
+            set { audience = value; }
+        }
+        public string ExpectedGameTime
+        {
+            get { return expectedGameTime; }
+            set { expectedGameTime = value; }
+        }
+        public string Distributor
+        {
+            get { return distributor; }
+            set { distributor = value; }
+        }
+        public int BoardgameId
+        {
+            get { return boardgameId; }
+            set { boardgameId = value; }
+        }
+        public string GameTag
+        {
+            get { return gameTag; }
+            set { gameTag = value; }
+        }
 
     }
 }

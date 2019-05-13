@@ -43,7 +43,7 @@ namespace Papas_System.Application
                         Console.Write("Spilgenre: ");
                         string gameTag = Console.ReadLine();
 
-                        InsertBoardgame(boardgameName, numberOfPlayers, audience, expectedGameTime, distributor, /*boardgameId,*/ gameTag);
+                        InsertBoardgame(boardgameName, numberOfPlayers, audience, expectedGameTime, distributor, /*boardgameId*/ gameTag);
                         Console.Clear();
                         break;
                     case 2:
@@ -59,40 +59,40 @@ namespace Papas_System.Application
 
         }
 
-        public void InsertBoardgame(string boardgameName, string numberOfPlayers, string audience, string expectedGameTime, string distributor, /*int boardgameId,*/ string gameTag)
+        public void InsertBoardgame(string boardgameName, string numberOfPlayers, string audience, string expectedGameTime, string distributor,/* int boardgameId,*/ string gameTag)
         {
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query1 = "INSERT INTO Game_Libary (Boardgame_Name, Player_Count, Audience, Game_Time, Distributor, Boardgame_Id , GameTag) VALUES " +
-                    "(@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @Boardgame_Id, @GameTag)";
+                string query1 = "INSERT INTO [C_DB13_2018].[dbo].[Game_Library] (Boardgame_Name, Player_Count, Audience, Game_Time, Distributor, GameTag) VALUES " +
+                    "(@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @GameTag)";
 
 
-                using (SqlCommand command = new SqlCommand(query1, con))
+                using (SqlCommand inserToBoardgame = new SqlCommand(query1, con))
                 {
                     try
                     {
-                        command.Parameters.Add(new SqlParameter("@Boardgame_Name", boardgameName));
-                        command.Parameters.Add(new SqlParameter("@Player_Count", numberOfPlayers));
-                        command.Parameters.Add(new SqlParameter("@Audience", audience));
-                        command.Parameters.Add(new SqlParameter("@Game_Time", expectedGameTime));
-                        command.Parameters.Add(new SqlParameter("@Distributor", distributor));
-                        command.Parameters.Add(new SqlParameter("@Boardgame_Id", 1));
-                        command.Parameters.Add(new SqlParameter("@GameTag", gameTag));
+                        inserToBoardgame.Parameters.Add(new SqlParameter("@Boardgame_Name", boardgameName));
+                        inserToBoardgame.Parameters.Add(new SqlParameter("@Player_Count", numberOfPlayers));
+                        inserToBoardgame.Parameters.Add(new SqlParameter("@Audience", audience));
+                        inserToBoardgame.Parameters.Add(new SqlParameter("@Game_Time", expectedGameTime));
+                        inserToBoardgame.Parameters.Add(new SqlParameter("@Distributor", distributor));
+                        //inserToBoardgame.Parameters.Add(new SqlParameter("@Boardgame_Id",1));
+                        inserToBoardgame.Parameters.Add(new SqlParameter("@GameTag", gameTag));
 
                         con.Open();
-                        command.ExecuteNonQuery();
+                        inserToBoardgame.ExecuteNonQuery();
                         con.Close();
 
                         Console.WriteLine("Brætspil er tilføjet");
                         Console.ReadLine();
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                        Console.ReadLine();
-                    }
                 }
+                    catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Console.ReadLine();
+                }
+            }
             }
         }
         //public DeleteBoardgame()
