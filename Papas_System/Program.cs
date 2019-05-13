@@ -45,7 +45,7 @@ namespace Papas_System
         public void ShowMenu()
         {
             Console.Clear();
-            Console.WriteLine("1. tilføj brætspil");
+            Console.WriteLine("1. Brætspil");
         }
         private int GetUserInput()
         {

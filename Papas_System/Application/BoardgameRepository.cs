@@ -10,7 +10,12 @@ namespace Papas_System.Application
 {
     public class BoardgameRepository : DataBaseController
     {
-
+        string WriteBoardgameName = "Navn på brætspil: ";
+        string WriteNoOfPlayers = "Anbefalet antal af spillere: ";
+        string WriteAudience = "Anbefalet aldersgruppe: ";
+        string WriteGameTime = "Forventet spilletid: ";
+        string WriteDistributor = "Distributør: ";
+        string WriteGameTag = "Spilgenre: ";
         public void AddBoardgame()
         {
 
@@ -28,21 +33,27 @@ namespace Papas_System.Application
                         break;
                     case 1:
                         Console.WriteLine("Tilføj nyt brætspil");
-                        Console.Write("Indtast navn på brætspil: ");
+                        Console.Clear();
+                        Console.Write(WriteBoardgameName);
                         string boardgameName = Console.ReadLine();
-                        Console.Write("Anbefalet antal af spillere: ");
+                        Console.Write(WriteNoOfPlayers);
                         string numberOfPlayers = Console.ReadLine();
-                        Console.Write("Anbefalet aldersgruppe: ");
+                        Console.Write(WriteAudience);
                         string audience = Console.ReadLine();
-                        Console.Write("Forventet spilletid: ");
+                        Console.Write(WriteGameTime);
                         string expectedGameTime = Console.ReadLine();
-                        Console.Write("Distributør: ");
+                        Console.Write(WriteDistributor);
                         string distributor = Console.ReadLine();
                         //Console.Write("Brætspils Id: ");
                         //int boardgameId = int.Parse(Console.ReadLine());
-                        Console.Write("Spilgenre: ");
+                        Console.Write(WriteGameTag);
                         string gameTag = Console.ReadLine();
+                        Console.Clear();
+                        Console.WriteLine($"Du er ved at tilføje {boardgameName}");
+                        Console.WriteLine
+                        ($"Ser følgende rigtigt ud?\n{WriteNoOfPlayers}{numberOfPlayers}\n{WriteAudience}{audience}\n{WriteGameTime}{expectedGameTime}\n{WriteDistributor}{distributor} ");
 
+                        Console.ReadKey();
                         InsertBoardgame(boardgameName, numberOfPlayers, audience, expectedGameTime, distributor, /*boardgameId*/ gameTag);
                         Console.Clear();
                         break;
@@ -84,7 +95,7 @@ namespace Papas_System.Application
                         inserToBoardgame.ExecuteNonQuery();
                         con.Close();
 
-                        Console.WriteLine("Brætspil er tilføjet");
+                        Console.WriteLine($"Brætspil {boardgameName} er tilføjet");
                         Console.ReadLine();
                 }
                     catch (Exception e)
