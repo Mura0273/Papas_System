@@ -33,25 +33,29 @@ namespace Papas_System.Application
                         break;
                     case 1:
                         Console.WriteLine("Tilføj nyt brætspil");
-                        Console.Clear();
-                        Console.Write(WriteBoardgameName);
-                        string boardgameName = Console.ReadLine();
-                        Console.Write(WriteNoOfPlayers);
-                        string numberOfPlayers = Console.ReadLine();
-                        Console.Write(WriteAudience);
-                        string audience = Console.ReadLine();
-                        Console.Write(WriteGameTime);
-                        string expectedGameTime = Console.ReadLine();
-                        Console.Write(WriteDistributor);
-                        string distributor = Console.ReadLine();
-                        //Console.Write("Brætspils Id: ");
-                        //int boardgameId = int.Parse(Console.ReadLine());
-                        Console.Write(WriteGameTag);
-                        string gameTag = Console.ReadLine();
-                        Console.Clear();
-                        Console.WriteLine($"Du er ved at tilføje {boardgameName}");
-                        Console.WriteLine
-                        ($"Ser følgende rigtigt ud?\n{WriteNoOfPlayers}{numberOfPlayers}\n{WriteAudience}{audience}\n{WriteGameTime}{expectedGameTime}\n{WriteDistributor}{distributor} ");
+                        
+
+                            Console.Clear();
+                            Console.Write(WriteBoardgameName);
+                            string boardgameName = Console.ReadLine();
+                            Console.Write(WriteNoOfPlayers);
+                            string numberOfPlayers = Console.ReadLine();
+                            Console.Write(WriteAudience);
+                            string audience = Console.ReadLine();
+                            Console.Write(WriteGameTime);
+                            string expectedGameTime = Console.ReadLine();
+                            Console.Write(WriteDistributor);
+                            string distributor = Console.ReadLine();
+                            //Console.Write("Brætspils Id: ");
+                            //int boardgameId = int.Parse(Console.ReadLine());
+                            Console.Write(WriteGameTag);
+                            string gameTag = Console.ReadLine();
+                            Console.Clear();
+                            Console.WriteLine($"Du er ved at tilføje {boardgameName}");
+                            Console.WriteLine
+                          
+                           ($"Ser følgende rigtigt ud?\n{WriteNoOfPlayers}{numberOfPlayers}\n{WriteAudience}{audience}\n{WriteGameTime}{expectedGameTime}\n{WriteDistributor}{distributor}\n{WriteGameTag}{gameTag}");
+
 
                         Console.ReadKey();
                         InsertBoardgame(boardgameName, numberOfPlayers, audience, expectedGameTime, distributor, /*boardgameId*/ gameTag);

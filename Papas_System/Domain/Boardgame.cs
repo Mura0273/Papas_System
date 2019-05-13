@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Papas_System.Domain
 {
-   public class Boardgame
+    public class Boardgame
     {
         private string boardgameName;
         private string numberOfPlayers;
@@ -17,8 +17,8 @@ namespace Papas_System.Domain
         private string gameTag;
         public string BoardgameName
         {
-           get { return boardgameName; }
-           set { boardgameName = value; }
+            get { return boardgameName; }
+            set { boardgameName = value; }
         }
         public string NumberOfPlayers
         {
