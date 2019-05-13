@@ -16,7 +16,7 @@ namespace Papas_System.Application
         string WriteGameTime = "Forventet spilletid: ";
         string WriteDistributor = "Distributør: ";
         string WriteGameTag = "Spilgenre: ";
-        public void AddBoardgame()
+        public void MenuBoardgame()
         {
 
             bool runWhileTrue = true;
@@ -33,8 +33,8 @@ namespace Papas_System.Application
                         break;
                     case 1:
                         Console.WriteLine("Tilføj nyt brætspil");
-                        
 
+                        //AddBoardgame();
                             Console.Clear();
                             Console.Write(WriteBoardgameName);
                             string boardgameName = Console.ReadLine();
@@ -45,20 +45,21 @@ namespace Papas_System.Application
                             Console.Write(WriteGameTime);
                             string expectedGameTime = Console.ReadLine();
                             Console.Write(WriteDistributor);
-                            string distributor = Console.ReadLine();
-                            //Console.Write("Brætspils Id: ");
-                            //int boardgameId = int.Parse(Console.ReadLine());
+                            string distributor = Console.ReadLine();                          
                             Console.Write(WriteGameTag);
                             string gameTag = Console.ReadLine();
                             Console.Clear();
-                            Console.WriteLine($"Du er ved at tilføje {boardgameName}");
-                            Console.WriteLine
+
+
+                       Console.WriteLine($"Du er ved at tilføje {boardgameName}");
+
+                       Console.WriteLine
                           
                            ($"Ser følgende rigtigt ud?\n{WriteNoOfPlayers}{numberOfPlayers}\n{WriteAudience}{audience}\n{WriteGameTime}{expectedGameTime}\n{WriteDistributor}{distributor}\n{WriteGameTag}{gameTag}");
 
 
                         Console.ReadKey();
-                        InsertBoardgame(boardgameName, numberOfPlayers, audience, expectedGameTime, distributor, /*boardgameId*/ gameTag);
+                        InsertBoardgame(boardgameName, numberOfPlayers, audience, expectedGameTime, distributor, gameTag);
                         Console.Clear();
                         break;
                     case 2:
@@ -91,8 +92,7 @@ namespace Papas_System.Application
                         inserToBoardgame.Parameters.Add(new SqlParameter("@Player_Count", numberOfPlayers));
                         inserToBoardgame.Parameters.Add(new SqlParameter("@Audience", audience));
                         inserToBoardgame.Parameters.Add(new SqlParameter("@Game_Time", expectedGameTime));
-                        inserToBoardgame.Parameters.Add(new SqlParameter("@Distributor", distributor));
-                        //inserToBoardgame.Parameters.Add(new SqlParameter("@Boardgame_Id",1));
+                        inserToBoardgame.Parameters.Add(new SqlParameter("@Distributor", distributor));                   
                         inserToBoardgame.Parameters.Add(new SqlParameter("@GameTag", gameTag));
 
                         con.Open();
