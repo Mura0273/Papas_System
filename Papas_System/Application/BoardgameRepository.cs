@@ -124,7 +124,7 @@ namespace Papas_System.Application
                   ;
                 try
                 {
-                    con.Open();
+                   
 
                     SqlCommand cmd2 = new SqlCommand(query2, con);
                     //cmd2.CommandType = CommandType.StoredProcedure;
@@ -143,13 +143,23 @@ namespace Papas_System.Application
                             string distributor = reader["Distributor"].ToString();
                             string gameTag = reader["GameTag"].ToString();
                             string boardgameId = reader["Boardgame_Id"].ToString();
-                           
-                            Console.WriteLine($"\nBoardgame_Name: {boardgameName} \nPlayer_Count: {numberOfPlayers} \nAudience: {audience} " +
-                            $"\nGame_Time: {expectedGameTime} \nDistributor: {distributor}\nGameTag {gameTag}\n\nBoardgame_Id: {boardgameId}");
-                            Console.ReadKey();
-                            con.Close();
+
+                            Console.WriteLine("Boardgame_Name: " + boardgameName);
+                            Console.WriteLine("Player_Count: " + numberOfPlayers);
+                            Console.WriteLine("Audience: " + audience);
+                            Console.WriteLine("Game_Time: " + expectedGameTime);
+                            Console.WriteLine("Distributor: " + distributor);
+                            Console.WriteLine("GameTag " + gameTag);
+                            Console.WriteLine("Boardgame_Id: " + boardgameId);
+                            Console.WriteLine();
+                            
+                            
+                            
                         }
                     }
+                    con.Close();
+
+                    Console.ReadKey();
                 }
                 catch (SqlException e)
                 {
