@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Papas_System.Application
 {
-    public class DataBaseController
+    public static class DataBaseController
     {
         //connectionstring skal kigges nærmere på
         public static string connectionString =
             "Server=EALSQL1.eal.local; Database= C_DB13_2018; User Id=C_STUDENT13; Password=C_OPENDB13;";
-        public void Connect()
+        public static void Connect()
         {
 
         }

@@ -11,7 +11,7 @@ namespace Papas_System.Application
         public void Boardgame()
         {
             BoardgameRepository boardgamerep = new BoardgameRepository();
-            boardgamerep.AddBoardgame();
+            boardgamerep.MenuBoardgame();
         }
     }
 }
