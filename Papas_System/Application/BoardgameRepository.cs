@@ -8,7 +8,7 @@ using System.Data;
 
 namespace Papas_System.Application
 {
-    static class BoardgameRepository
+    public static class BoardgameRepository
     {
         static string WriteBoardgameName = "Navn på brætspil: ";
         static string WriteNoOfPlayers = "Anbefalet antal af spillere: ";
@@ -16,7 +16,7 @@ namespace Papas_System.Application
         static string WriteGameTime = "Forventet spilletid: ";
         static string WriteDistributor = "Distributør: ";
         static string WriteGameTag = "Spilgenre: ";
-        static void MenuBoardgame()
+        public static void MenuBoardgame()
         {
 
             bool runWhileTrue = true;
@@ -65,6 +65,7 @@ namespace Papas_System.Application
                     case 2:
                         Console.WriteLine("Viser alle brætspil");
                         GetBoardgame();
+                        Console.ReadKey();
                         Console.Clear();
                         break;
                     default:
@@ -75,7 +76,7 @@ namespace Papas_System.Application
 
         }
 
-        static void InsertBoardgame(string boardgameName, string numberOfPlayers, string audience, string expectedGameTime, string distributor,/* int boardgameId,*/ string gameTag)
+            public static void InsertBoardgame(string boardgameName, string numberOfPlayers, string audience, string expectedGameTime, string distributor,/* int boardgameId,*/ string gameTag)
         {
 
             using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
@@ -114,19 +115,19 @@ namespace Papas_System.Application
         //{
 
         //}
-        static void GetBoardgame()
+        public static void GetBoardgame()
         {
 
             using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
             {
-                string query2 = "SELECT" +
-                    "(@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @Boardgame_Id, @GameTag)";
+                string query2 = "SELECT (@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @GameTag, @Boardgame_Id)  FROM [C_DB13_2018].[dbo].[Game_Library]"
+                  ;
                 try
                 {
                     con.Open();
 
                     SqlCommand cmd2 = new SqlCommand(query2, con);
-                    cmd2.CommandType = CommandType.StoredProcedure;
+                    //cmd2.CommandType = CommandType.StoredProcedure;
 
                     SqlDataReader reader = cmd2.ExecuteReader();
 
@@ -140,11 +141,13 @@ namespace Papas_System.Application
                             string audience = reader["Audience"].ToString();
                             string expectedGameTime = reader["Game_Time"].ToString();
                             string distributor = reader["Distributor"].ToString();
+                            string gameTag = reader["GameTag"].ToString();
                             string boardgameId = reader["Boardgame_Id"].ToString();
-                            string gameTag = reader ["GameTag"].ToString();
+                           
                             Console.WriteLine($"\nBoardgame_Name: {boardgameName} \nPlayer_Count: {numberOfPlayers} \nAudience: {audience} " +
-                            $"\nGame_Time: {expectedGameTime} \nDistributor: {distributor}\nBoardgame_Id: {boardgameId}\nGameTag {gameTag}\n");
-                            //con.Close();
+                            $"\nGame_Time: {expectedGameTime} \nDistributor: {distributor}\nGameTag {gameTag}\n\nBoardgame_Id: {boardgameId}");
+                            Console.ReadKey();
+                            con.Close();
                         }
                     }
                 }
