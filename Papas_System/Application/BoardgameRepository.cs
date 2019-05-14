@@ -82,7 +82,7 @@ namespace Papas_System.Application
             using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
             {
                 string query1 = "INSERT INTO [C_DB13_2018].[dbo].[Game_Library] (Boardgame_Name, Player_Count, Audience, Game_Time, Distributor, GameTag) VALUES " +
-                    "(@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @GameTag)";
+                    "(@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @GameTag);";
 
 
                 using (SqlCommand inserToBoardgame = new SqlCommand(query1, con))
@@ -118,43 +118,45 @@ namespace Papas_System.Application
         public static void GetBoardgame()
         {
 
-            using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
+          
             {
-                string query2 = "SELECT (@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @GameTag, @Boardgame_Id)  FROM [C_DB13_2018].[dbo].[Game_Library]"
+                string query2 = "SELECT (@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @GameTag, @Boardgame_Id)  FROM [C_DB13_2018].[dbo].[Game_Library];"
                   ;
-                try
+                using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
+                    try
                 {
-                   
+                        SqlCommand cmd2 = new SqlCommand(query2, con);
+                        con.Open();
 
-                    SqlCommand cmd2 = new SqlCommand(query2, con);
-                    //cmd2.CommandType = CommandType.StoredProcedure;
+                        SqlDataReader reader = cmd2.ExecuteReader();
+                        cmd2.CommandType = CommandType.StoredProcedure;
 
-                    SqlDataReader reader = cmd2.ExecuteReader();
 
-                    if (reader.HasRows)
+
+                        if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
 
-                            string boardgameName = reader["Boardgame_Name"].ToString();
-                            string numberOfPlayers = reader["Player_Count"].ToString();
-                            string audience = reader["Audience"].ToString();
-                            string expectedGameTime = reader["Game_Time"].ToString();
-                            string distributor = reader["Distributor"].ToString();
-                            string gameTag = reader["GameTag"].ToString();
-                            string boardgameId = reader["Boardgame_Id"].ToString();
+                            string boardgameName = reader["@Boardgame_Name"].ToString();
+                            string numberOfPlayers = reader["@Player_Count"].ToString();
+                            string audience = reader["@Audience"].ToString();
+                            string expectedGameTime = reader["@Game_Time"].ToString();
+                            string distributor = reader["@Distributor"].ToString();
+                            string gameTag = reader["@GameTag"].ToString();
+                            string boardgameId = reader["@Boardgame_Id"].ToString();
 
-                            Console.WriteLine("Boardgame_Name: " + boardgameName);
-                            Console.WriteLine("Player_Count: " + numberOfPlayers);
-                            Console.WriteLine("Audience: " + audience);
-                            Console.WriteLine("Game_Time: " + expectedGameTime);
-                            Console.WriteLine("Distributor: " + distributor);
-                            Console.WriteLine("GameTag " + gameTag);
-                            Console.WriteLine("Boardgame_Id: " + boardgameId);
+                            Console.WriteLine("@Boardgame_Name: " + boardgameName);
+                            Console.WriteLine("@Player_Count: " + numberOfPlayers);
+                            Console.WriteLine("@Audience: " + audience);
+                            Console.WriteLine("@Game_Time: " + expectedGameTime);
+                            Console.WriteLine("@Distributor: " + distributor);
+                            Console.WriteLine("@GameTag " + gameTag);
+                            Console.WriteLine("@Boardgame_Id: " + boardgameId);
                             Console.WriteLine();
-                            
-                            
-                            
+                            Console.ReadKey();
+
+
                         }
                     }
                     con.Close();
