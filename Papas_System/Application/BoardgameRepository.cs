@@ -8,15 +8,15 @@ using System.Data;
 
 namespace Papas_System.Application
 {
-    public class BoardgameRepository : DataBaseController
+    static class BoardgameRepository
     {
-        string WriteBoardgameName = "Navn på brætspil: ";
-        string WriteNoOfPlayers = "Anbefalet antal af spillere: ";
-        string WriteAudience = "Anbefalet aldersgruppe: ";
-        string WriteGameTime = "Forventet spilletid: ";
-        string WriteDistributor = "Distributør: ";
-        string WriteGameTag = "Spilgenre: ";
-        public void MenuBoardgame()
+        static string WriteBoardgameName = "Navn på brætspil: ";
+        static string WriteNoOfPlayers = "Anbefalet antal af spillere: ";
+        static string WriteAudience = "Anbefalet aldersgruppe: ";
+        static string WriteGameTime = "Forventet spilletid: ";
+        static string WriteDistributor = "Distributør: ";
+        static string WriteGameTag = "Spilgenre: ";
+        static void MenuBoardgame()
         {
 
             bool runWhileTrue = true;
@@ -75,10 +75,10 @@ namespace Papas_System.Application
 
         }
 
-        public void InsertBoardgame(string boardgameName, string numberOfPlayers, string audience, string expectedGameTime, string distributor,/* int boardgameId,*/ string gameTag)
+        static void InsertBoardgame(string boardgameName, string numberOfPlayers, string audience, string expectedGameTime, string distributor,/* int boardgameId,*/ string gameTag)
         {
 
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
             {
                 string query1 = "INSERT INTO [C_DB13_2018].[dbo].[Game_Library] (Boardgame_Name, Player_Count, Audience, Game_Time, Distributor, GameTag) VALUES " +
                     "(@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @GameTag)";
@@ -114,10 +114,10 @@ namespace Papas_System.Application
         //{
 
         //}
-        public void GetBoardgame()
+        static void GetBoardgame()
         {
 
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
             {
                 string query2 = "SELECT" +
                     "(@Boardgame_Name, @Player_Count, @Audience, @Game_Time, @Distributor, @Boardgame_Id, @GameTag)";
