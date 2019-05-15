@@ -25,6 +25,7 @@ namespace Papas_System.Application
                 Console.Clear();
                 Console.WriteLine("1. Tilføj nyt brætspil");
                 Console.WriteLine("2. Vis alle brætspil");
+                Console.WriteLine("3. Slet brætspil");
                 int menuInput = int.Parse(Console.ReadLine());
                 switch (menuInput)
                 {
@@ -67,8 +68,16 @@ namespace Papas_System.Application
                         Console.Clear();
                         GetBoardgame();
                         Console.ReadLine();
-                        
                         break;
+
+                    case 3:
+                        Console.Clear();
+                        Console.WriteLine("Vælg et brætspil");
+
+                        DeleteMembership();
+                        break;
+
+
                     default:
 
                         break;
@@ -117,12 +126,7 @@ namespace Papas_System.Application
 
         //}
         public static void GetBoardgame()
-        {
-
-          
-            
-                
-                  
+        {                
                 using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
                     try
                 {
@@ -163,7 +167,19 @@ namespace Papas_System.Application
                 }
             
         }
+        public static void DeleteMembership()
+        {
+            using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
+            {
+                SqlCommand query3 = new SqlCommand("DeleteMembership", con);
+                query3.CommandType = CommandType.StoredProcedure;
+                query3.Parameters.Remove("@Member_No");
 
+                con.Open();
+                query3.ExecuteNonQuery();
+                con.Close();
+            }
+        }
     }
 }
         //public ModifyBoardgame()
