@@ -29,8 +29,8 @@ namespace Papas_System.Application
                 Console.WriteLine("3. Slet brætspil");
                 Console.WriteLine("4. Opdater et brætspil");
 
-              
-               
+
+
 
                 int menuInput = int.Parse(Console.ReadLine());
                 switch (menuInput)
@@ -89,7 +89,7 @@ namespace Papas_System.Application
 
 
                     default:
-                    
+
                         break;
 
                     case 4:
@@ -205,14 +205,14 @@ namespace Papas_System.Application
                 con.Close();
             }
         }
-    }
-}
+
+
 
         //public ModifyBoardgame()
         //{
 
         //}
-       public static void ModifyBoardgame()
+        public static void ModifyBoardgame()
         {
             try
             {
@@ -224,10 +224,10 @@ namespace Papas_System.Application
                     using (SqlCommand cmd =
                         new SqlCommand(query4, con))
                     {
-                       
+
 
                         cmd.Parameters.AddWithValue("@Boardgame_Name", "CASPER");
-                       // cmd.Parameters.AddWithValue("@Address", "Kerala");
+                        // cmd.Parameters.AddWithValue("@Address", "Kerala");
 
                         int rows = cmd.ExecuteNonQuery();
 
@@ -244,6 +244,6 @@ namespace Papas_System.Application
         //{
 
         //}
-
     }
+
 }
