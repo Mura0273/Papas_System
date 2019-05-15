@@ -95,12 +95,12 @@ namespace Papas_System.Application
                     case 4:
                         Console.WriteLine("Vælg det spil der skal ændres");
                         GetBoardgame();
-                        Console.ReadKey();
+
                         Console.Clear();
                         Console.WriteLine("Hvilket spil skal ændres?");
                         Console.WriteLine("Angiv brætspillets Id: ");
                         string boardgameId = Console.ReadLine();
-                        ModifyBoardgame();
+                        ModifyBoardGame();
 
                         break;
                 }
@@ -212,38 +212,65 @@ namespace Papas_System.Application
         //{
 
         //}
-        public static void ModifyBoardgame()
+        public static void ModifyBoardGame()
         {
-            try
-            {
-
-                using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
+            using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
+                try
                 {
+                    SqlCommand command3 = new SqlCommand("UPDATE Game_Library SET boardgamename = @Boardgame_Name, numberOfPlayers = @Player_Count, audience = @Audience, expectedGameTime = @Game_Time, distributor = @Distributor, gameTag = @GameTag" + "WHERE boardgameId = @Boardgame_Id", con);
                     con.Open();
-                    string query4 = $@" SELECT * FROM [C_DB13_2018].[dbo].[Game_Library] WHERE @Boardgame_Id = {boardgameId}  ";
-                    using (SqlCommand cmd =
-                        new SqlCommand(query4, con))
+
                     {
 
+                        int boardgameIdNo;
+                        Int32.TryParse(boardgameId, out boardgameIdNo);
+                        Console.Clear();
+                        Console.Write(WriteBoardgameName);
+                        string boardgameName = Console.ReadLine();
+                        Console.Write(WriteNoOfPlayers);
+                        string numberOfPlayers = Console.ReadLine();
+                        Console.Write(WriteAudience);
+                        string audience = Console.ReadLine();
+                        Console.Write(WriteGameTime);
+                        string expectedGameTime = Console.ReadLine();
+                        Console.Write(WriteDistributor);
+                        string distributor = Console.ReadLine();
+                        Console.Write(WriteGameTag);
+                        string gameTag = Console.ReadLine();
+                        Console.Clear();
 
-                        cmd.Parameters.AddWithValue("@Boardgame_Name", "CASPER");
-                        // cmd.Parameters.AddWithValue("@Address", "Kerala");
+                        //command3.Parameters.AddWithValue("@Boardgame_Id", boardgameIdNo);
 
-                        int rows = cmd.ExecuteNonQuery();
+                        //string boardgameName = Console.ReadLine();
+                        command3.Parameters.AddWithValue("@Boardgame_Name", boardgameName);
 
-                        //rows number of record got updated
+                        //string numberOfPlayers = Console.ReadLine();
+                        command3.Parameters.AddWithValue("@Player_Count", numberOfPlayers);
+
+                        //string audience = Console.ReadLine();
+                        command3.Parameters.AddWithValue("@Audience", audience);
+
+                        //string expectedGameTime = Console.ReadLine();
+                        command3.Parameters.AddWithValue("@Game_Time", expectedGameTime);
+
+                        //string distributor = Console.ReadLine();
+                        command3.Parameters.AddWithValue("@Distributor", distributor);
+
+                        //string gameTag = Console.ReadLine();
+                        command3.Parameters.AddWithValue("@GameTag", gameTag);
+
+                        command3.ExecuteNonQuery();
+                        con.Open();
                     }
                 }
-            }
-            catch (SqlException e)
-            {
-                Console.WriteLine("Fejl: " + e.Message);
-            }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Fejl: " + e.Message);
+                }
         }
-        //public RecommendBoardgame()
-        //{
-
-        //}
     }
+    //public RecommendBoardgame()
+    //{
 
+    //}
 }
