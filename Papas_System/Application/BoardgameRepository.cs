@@ -16,6 +16,7 @@ namespace Papas_System.Application
         static string WriteGameTime = "Forventet spilletid: ";
         static string WriteDistributor = "Distributør: ";
         static string WriteGameTag = "Spilgenre: ";
+        static string boardgameId;
         public static void MenuBoardgame()
         {
 
@@ -25,6 +26,8 @@ namespace Papas_System.Application
                 Console.Clear();
                 Console.WriteLine("1. Tilføj nyt brætspil");
                 Console.WriteLine("2. Vis alle brætspil");
+
+                Console.WriteLine("4. Opdater et brætspil");
                 int menuInput = int.Parse(Console.ReadLine());
                 switch (menuInput)
                 {
@@ -35,27 +38,27 @@ namespace Papas_System.Application
                         Console.WriteLine("Tilføj nyt brætspil");
 
                         //AddBoardgame();
-                            Console.Clear();
-                            Console.Write(WriteBoardgameName);
-                            string boardgameName = Console.ReadLine();
-                            Console.Write(WriteNoOfPlayers);
-                            string numberOfPlayers = Console.ReadLine();
-                            Console.Write(WriteAudience);
-                            string audience = Console.ReadLine();
-                            Console.Write(WriteGameTime);
-                            string expectedGameTime = Console.ReadLine();
-                            Console.Write(WriteDistributor);
-                            string distributor = Console.ReadLine();                          
-                            Console.Write(WriteGameTag);
-                            string gameTag = Console.ReadLine();
-                            Console.Clear();
+                        Console.Clear();
+                        Console.Write(WriteBoardgameName);
+                        string boardgameName = Console.ReadLine();
+                        Console.Write(WriteNoOfPlayers);
+                        string numberOfPlayers = Console.ReadLine();
+                        Console.Write(WriteAudience);
+                        string audience = Console.ReadLine();
+                        Console.Write(WriteGameTime);
+                        string expectedGameTime = Console.ReadLine();
+                        Console.Write(WriteDistributor);
+                        string distributor = Console.ReadLine();
+                        Console.Write(WriteGameTag);
+                        string gameTag = Console.ReadLine();
+                        Console.Clear();
 
 
-                       Console.WriteLine($"Du er ved at tilføje {boardgameName}");
+                        Console.WriteLine($"Du er ved at tilføje {boardgameName}");
 
-                       Console.WriteLine
-                          
-                           ($"Ser følgende rigtigt ud?\n{WriteNoOfPlayers}{numberOfPlayers}\n{WriteAudience}{audience}\n{WriteGameTime}{expectedGameTime}\n{WriteDistributor}{distributor}\n{WriteGameTag}{gameTag}");
+                        Console.WriteLine
+
+                            ($"Ser følgende rigtigt ud?\n{WriteNoOfPlayers}{numberOfPlayers}\n{WriteAudience}{audience}\n{WriteGameTime}{expectedGameTime}\n{WriteDistributor}{distributor}\n{WriteGameTag}{gameTag}");
 
 
                         Console.ReadKey();
@@ -67,9 +70,21 @@ namespace Papas_System.Application
                         Console.Clear();
                         GetBoardgame();
                         Console.ReadLine();
-                        
+
                         break;
                     default:
+                    
+                        break;
+
+                    case 4:
+                        Console.WriteLine("Vælg det spil der skal ændres");
+                        GetBoardgame();
+                        Console.ReadKey();
+                        Console.Clear();
+                        Console.WriteLine("Hvilket spil skal ændres?");
+                        Console.WriteLine("Angiv brætspillets Id: ");
+                        string boardgameId = Console.ReadLine();
+                        ModifyBoardgame();
 
                         break;
                 }
@@ -77,7 +92,7 @@ namespace Papas_System.Application
 
         }
 
-            public static void InsertBoardgame(string boardgameName, string numberOfPlayers, string audience, string expectedGameTime, string distributor,/* int boardgameId,*/ string gameTag)
+        public static void InsertBoardgame(string boardgameName, string numberOfPlayers, string audience, string expectedGameTime, string distributor,/* int boardgameId,*/ string gameTag)
         {
 
             using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
@@ -94,7 +109,7 @@ namespace Papas_System.Application
                         inserToBoardgame.Parameters.Add(new SqlParameter("@Player_Count", numberOfPlayers));
                         inserToBoardgame.Parameters.Add(new SqlParameter("@Audience", audience));
                         inserToBoardgame.Parameters.Add(new SqlParameter("@Game_Time", expectedGameTime));
-                        inserToBoardgame.Parameters.Add(new SqlParameter("@Distributor", distributor));                   
+                        inserToBoardgame.Parameters.Add(new SqlParameter("@Distributor", distributor));
                         inserToBoardgame.Parameters.Add(new SqlParameter("@GameTag", gameTag));
 
                         con.Open();
@@ -103,13 +118,13 @@ namespace Papas_System.Application
 
                         Console.WriteLine($"Brætspil {boardgameName} er tilføjet");
                         Console.ReadLine();
-                }
+                    }
                     catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                    Console.ReadLine();
+                    {
+                        Console.WriteLine(e.Message);
+                        Console.ReadLine();
+                    }
                 }
-            }
             }
         }
         //public DeleteBoardgame()
@@ -119,22 +134,22 @@ namespace Papas_System.Application
         public static void GetBoardgame()
         {
 
-          
-            
-                
-                  
-                using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
-                    try
+
+
+
+
+            using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
+                try
                 {
-                        SqlCommand cmd2 = new SqlCommand("ViewGameLibrary", con);
-                        con.Open();
+                    SqlCommand cmd2 = new SqlCommand("ViewGameLibrary", con);
+                    con.Open();
                     cmd2.CommandType = CommandType.StoredProcedure;
                     SqlDataReader reader = cmd2.ExecuteReader();
-                       
 
 
 
-                        if (reader.HasRows)
+
+                    if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
@@ -148,7 +163,7 @@ namespace Papas_System.Application
                             string boardgameId = reader["Boardgame_Id"].ToString();
 
                             Console.WriteLine($"\nBoardgame_Name: {boardgameName} \nPlayer_Count: {numberOfPlayers} \nAudience: {audience} " +
-                           $"\nGame_Time: {expectedGameTime} \nDistributor: {distributor}\nBoardgame_Id: {boardgameId}\nGameTag {gameTag}\n");
+                           $"\nGame_Time: {expectedGameTime} \nDistributor: {distributor}\nBoardgame_Id: {boardgameId}\nGameTag: {gameTag}\n");
 
 
                         }
@@ -161,18 +176,47 @@ namespace Papas_System.Application
                 {
                     Console.WriteLine("Fejl: " + e.Message);
                 }
-            
+
         }
 
-    }
-}
+
+
         //public ModifyBoardgame()
         //{
 
         //}
+       public static void ModifyBoardgame()
+        {
+            try
+            {
+
+                using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
+                {
+                    con.Open();
+                    string query4 = $@" SELECT * FROM [C_DB13_2018].[dbo].[Game_Library] WHERE @Boardgame_Id = {boardgameId}  ";
+                    using (SqlCommand cmd =
+                        new SqlCommand(query4, con))
+                    {
+                       
+
+                        cmd.Parameters.AddWithValue("@Boardgame_Name", "CASPER");
+                       // cmd.Parameters.AddWithValue("@Address", "Kerala");
+
+                        int rows = cmd.ExecuteNonQuery();
+
+                        //rows number of record got updated
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine("Fejl: " + e.Message);
+            }
+        }
         //public RecommendBoardgame()
         //{
 
         //}
-    
 
+    }
+}
