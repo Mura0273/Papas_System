@@ -17,6 +17,12 @@ namespace Papas_System.Application
         static string WriteDistributor = "Distributør: ";
         static string WriteGameTag = "Spilgenre: ";
         static string boardgameId;
+        static string boardgameName;
+        static string numberOfPlayers;
+        static string audience;
+        static string expectedGameTime;
+        static string distributor;
+        static string gameTag;
         public static void MenuBoardgame()
         {
 
@@ -217,46 +223,46 @@ namespace Papas_System.Application
             using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
                 try
                 {
-                    SqlCommand command3 = new SqlCommand("UPDATE Game_Library SET boardgamename = @Boardgame_Name, numberOfPlayers = @Player_Count, audience = @Audience, expectedGameTime = @Game_Time, distributor = @Distributor, gameTag = @GameTag" + "WHERE boardgameId = @Boardgame_Id", con);
+                    SqlCommand command3 = new SqlCommand($"UPDATE Game_Library SET {boardgameName} = @Boardgame_Name, {numberOfPlayers} = @Player_Count, {audience} = @Audience, {expectedGameTime} = @Game_Time, {distributor} = @Distributor, {gameTag} = @GameTag" + $"WHERE {boardgameId} = @Boardgame_Id", con);
                     con.Open();
 
                     {
 
-                        int boardgameIdNo;
-                        Int32.TryParse(boardgameId, out boardgameIdNo);
+                        //int boardgameIdNo;
+                        //Int32.TryParse(boardgameId, out boardgameIdNo);
                         Console.Clear();
                         Console.Write(WriteBoardgameName);
-                        string boardgameName = Console.ReadLine();
+                        boardgameName = Console.ReadLine();
                         Console.Write(WriteNoOfPlayers);
-                        string numberOfPlayers = Console.ReadLine();
+                        numberOfPlayers = Console.ReadLine();
                         Console.Write(WriteAudience);
-                        string audience = Console.ReadLine();
+                        audience = Console.ReadLine();
                         Console.Write(WriteGameTime);
-                        string expectedGameTime = Console.ReadLine();
+                        expectedGameTime = Console.ReadLine();
                         Console.Write(WriteDistributor);
-                        string distributor = Console.ReadLine();
+                        distributor = Console.ReadLine();
                         Console.Write(WriteGameTag);
-                        string gameTag = Console.ReadLine();
+                        gameTag = Console.ReadLine();
                         Console.Clear();
 
-                        //command3.Parameters.AddWithValue("@Boardgame_Id", boardgameIdNo);
+                       
 
-                        //string boardgameName = Console.ReadLine();
+                   
                         command3.Parameters.AddWithValue("@Boardgame_Name", boardgameName);
 
-                        //string numberOfPlayers = Console.ReadLine();
+                     
                         command3.Parameters.AddWithValue("@Player_Count", numberOfPlayers);
 
-                        //string audience = Console.ReadLine();
+                  
                         command3.Parameters.AddWithValue("@Audience", audience);
 
-                        //string expectedGameTime = Console.ReadLine();
+                
                         command3.Parameters.AddWithValue("@Game_Time", expectedGameTime);
 
-                        //string distributor = Console.ReadLine();
+        
                         command3.Parameters.AddWithValue("@Distributor", distributor);
 
-                        //string gameTag = Console.ReadLine();
+                   
                         command3.Parameters.AddWithValue("@GameTag", gameTag);
 
                         command3.ExecuteNonQuery();
