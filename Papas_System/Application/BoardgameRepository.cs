@@ -223,7 +223,7 @@ namespace Papas_System.Application
             using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
                 try
                 {
-                    SqlCommand command3 = new SqlCommand("UpdateGameLibrary" , con);
+                    SqlCommand command3 = new SqlCommand("UpdateGameLibrary" + $"WHERE {boardgameId} = @Boardgame_Id" , con);
                     con.Open();
                     /*{boardgameName} = @Boardgame_Name, {numberOfPlayers} = @Player_Count, {audience} = @Audience, {expectedGameTime} = @Game_Time, {distributor} = @Distributor, {gameTag} = @GameTag*/
                     //" + $"WHERE { boardgameId} = @Boardgame_Id"
