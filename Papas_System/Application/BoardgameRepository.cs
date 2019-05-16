@@ -194,21 +194,21 @@ namespace Papas_System.Application
                 }
 
         }
-        public static void DeleteMembership()
+        public static void DeleteBoardgame()
         {
-            using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
+            string query3 = "DELETE FROM [C_DB13_2018].[dbo].[Game_Library] WHERE Boardgame_Id = '" + boardgameName + "';";
+            SqlConnection con = new SqlConnection(DataBaseController.connectionString);
+            SqlCommand DeleteBoardgame = new SqlCommand(query3, con);
+            try
             {
-                SqlCommand query3 = new SqlCommand("DeleteMembership", con);
-                query3.CommandType = CommandType.StoredProcedure;
-                query3.Parameters.Remove("@Member_No");
-
-
-
-
-
                 con.Open();
-                query3.ExecuteNonQuery();
+
+                DeleteBoardgame.ExecuteNonQuery();
                 con.Close();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine("Fejl: " + e.Message);
             }
         }
 
