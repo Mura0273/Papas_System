@@ -16,7 +16,7 @@ namespace Papas_System.Application
         static string WriteGameTime = "Forventet spilletid: ";
         static string WriteDistributor = "Distributør: ";
         static string WriteGameTag = "Spilgenre: ";
-        static string boardgameId;
+        static int boardgameId;
         static string boardgameName;
         static string numberOfPlayers;
         static string audience;
@@ -105,7 +105,7 @@ namespace Papas_System.Application
                         Console.Clear();
                         Console.WriteLine("Hvilket spil skal ændres?");
                         Console.WriteLine("Angiv spillets Id: ");
-                        string boardgameId = Console.ReadLine();
+                        int boardgameId = Convert.ToInt32(Console.ReadLine());
                         ModifyBoardGame();
 
                         break;
@@ -223,9 +223,10 @@ namespace Papas_System.Application
             using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
                 try
                 {
-                    SqlCommand command3 = new SqlCommand($"UPDATE Game_Library SET {boardgameName} = @Boardgame_Name, {numberOfPlayers} = @Player_Count, {audience} = @Audience, {expectedGameTime} = @Game_Time, {distributor} = @Distributor, {gameTag} = @GameTag" + $"WHERE {boardgameId} = @Boardgame_Id", con);
+                    SqlCommand command3 = new SqlCommand("UpdateGameLibrary" , con);
                     con.Open();
-
+                    /*{boardgameName} = @Boardgame_Name, {numberOfPlayers} = @Player_Count, {audience} = @Audience, {expectedGameTime} = @Game_Time, {distributor} = @Distributor, {gameTag} = @GameTag*/
+                    //" + $"WHERE { boardgameId} = @Boardgame_Id"
                     {
 
                         //int boardgameIdNo;
@@ -266,7 +267,7 @@ namespace Papas_System.Application
                         command3.Parameters.AddWithValue("@GameTag", gameTag);
 
                         command3.ExecuteNonQuery();
-                        con.Open();
+                        con.Close();
                     }
                 }
                 catch (SqlException e)
