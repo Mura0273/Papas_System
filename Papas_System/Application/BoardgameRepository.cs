@@ -193,18 +193,12 @@ namespace Papas_System.Application
         }
 
         public static void DeleteBoardgame()
-
         {
             string query3 = "DELETE FROM [C_DB13_2018].[dbo].[Game_Library] WHERE Boardgame_Id = '" + boardgameName + "';";
             SqlConnection con = new SqlConnection(DataBaseController.connectionString);
             SqlCommand DeleteBoardgame = new SqlCommand(query3, con);
             try
             {
-
-                SqlCommand query3 /*ikke query3, command4*/ = new SqlCommand("DeleteMembership" /*DeleteBoardgame*/, con);
-                query3.CommandType = CommandType.StoredProcedure;
-                query3.Parameters.Remove("@Member_No"/* @BoardgameId*/);
-
                 con.Open();
 
                 DeleteBoardgame.ExecuteNonQuery();
@@ -218,7 +212,7 @@ namespace Papas_System.Application
 
 
 
-  
+
         public static void ModifyBoardGame()
         {
             using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
