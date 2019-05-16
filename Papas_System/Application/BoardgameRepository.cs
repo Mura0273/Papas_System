@@ -10,7 +10,7 @@ namespace Papas_System.Application
 {
     public static class BoardgameRepository
     {
-        static string WriteBoardgameName = "Navn på brætspil: ";
+        static string WriteBoardgameName = "Navn på spil: ";
         static string WriteNoOfPlayers = "Anbefalet antal af spillere: ";
         static string WriteAudience = "Anbefalet aldersgruppe: ";
         static string WriteGameTime = "Forventet spilletid: ";
@@ -30,10 +30,10 @@ namespace Papas_System.Application
             while (runWhileTrue)
             {
                 Console.Clear();
-                Console.WriteLine("1. Tilføj nyt brætspil");
-                Console.WriteLine("2. Vis alle brætspil");
-                Console.WriteLine("3. Slet brætspil");
-                Console.WriteLine("4. Opdater et brætspil");
+                Console.WriteLine("1. Tilføj nyt spil");
+                Console.WriteLine("2. Vis alle spil");
+                Console.WriteLine("3. Slet spil");
+                Console.WriteLine("4. Opdater et spil");
 
 
 
@@ -45,7 +45,7 @@ namespace Papas_System.Application
                         runWhileTrue = false;
                         break;
                     case 1:
-                        Console.WriteLine("Tilføj nyt brætspil");
+                        Console.WriteLine("Tilføj et spil");
 
                         //AddBoardgame();
                         Console.Clear();
@@ -76,7 +76,7 @@ namespace Papas_System.Application
                         Console.Clear();
                         break;
                     case 2:
-                        Console.WriteLine("Viser alle brætspil");
+                        Console.WriteLine("Vis alle spil");
                         Console.Clear();
                         GetBoardgame();
                         Console.ReadLine();
@@ -88,7 +88,7 @@ namespace Papas_System.Application
 
                     case 3:
                         Console.Clear();
-                        Console.WriteLine("Vælg et brætspil");
+                        Console.WriteLine("Vælg et spil der skal slettes");
 
                         DeleteMembership();
                         break;
@@ -99,12 +99,12 @@ namespace Papas_System.Application
                         break;
 
                     case 4:
-                        Console.WriteLine("Vælg det spil der skal ændres");
+                        Console.WriteLine("Vælg et spil der skal ændres");
                         GetBoardgame();
 
                         Console.Clear();
                         Console.WriteLine("Hvilket spil skal ændres?");
-                        Console.WriteLine("Angiv brætspillets Id: ");
+                        Console.WriteLine("Angiv spillets Id: ");
                         string boardgameId = Console.ReadLine();
                         ModifyBoardGame();
 
@@ -138,7 +138,7 @@ namespace Papas_System.Application
                         inserToBoardgame.ExecuteNonQuery();
                         con.Close();
 
-                        Console.WriteLine($"Brætspil {boardgameName} er tilføjet");
+                        Console.WriteLine($"Spil: {boardgameName} er tilføjet");
                         Console.ReadLine();
                     }
                     catch (Exception e)
@@ -194,13 +194,13 @@ namespace Papas_System.Application
                 }
 
         }
-        public static void DeleteMembership()
+        public static void DeleteMembership() //DeleteBoardgame
         {
             using (SqlConnection con = new SqlConnection(DataBaseController.connectionString))
             {
-                SqlCommand query3 = new SqlCommand("DeleteMembership", con);
+                SqlCommand query3 /*ikke query3, command4*/ = new SqlCommand("DeleteMembership" /*DeleteBoardgame*/, con);
                 query3.CommandType = CommandType.StoredProcedure;
-                query3.Parameters.Remove("@Member_No");
+                query3.Parameters.Remove("@Member_No"/* @BoardgameId*/);
 
 
 
